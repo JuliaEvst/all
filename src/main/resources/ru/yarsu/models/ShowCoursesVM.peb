@@ -1,0 +1,16 @@
+{% extends "./layout.peb" %}
+{% block title %} Список курсов {% endblock %}
+
+{% block content %}
+    <div class="grid-x grid-padding-x">
+            <div class="cell">
+                <h1> Список курсов: </h1>
+                <ul>
+                    {% for course in model.courses %}
+                        <li> <a href="courses/{{course.id}}"> {{ course.courseName }} </a> </li>
+                    {% endfor %}
+                </ul>
+                </div>
+            </div>
+    </div>
+{% endblock %}

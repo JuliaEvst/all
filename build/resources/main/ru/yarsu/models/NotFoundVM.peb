@@ -1,0 +1,15 @@
+{% extends "./layout.peb" %}
+{% block title %}Ошибка{% endblock %}
+
+
+{% block content %}
+    <div class="grid-x grid-padding-x">
+        <div class="cell">
+            <h1>Искомая страница не найдена</h1>
+
+            <p>Запрошенный адрес: {{ model.uri }}</p>
+
+            <a href="/">Вернуться в систему</a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "./layout.peb" %}
+{% block title %} Список курсов {% endblock %}
+
+{% block content %}
+    <div class="grid-x grid-padding-x">
+            <div class="cell">
+                <table>
+                    <thead>
+                        <tr>
+                            <td> Название курса </td>
+                            <td> ФИО преподавателя </td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for course in model.courses %}
+                        <tr>
+                            <td> {{ course.courseName }} </td>
+                            <td> {{ course.lecturerFullName }} </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+    </div>
+{% endblock %}

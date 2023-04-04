@@ -1,0 +1,197 @@
+{% extends "./layout.peb" %}
+{% block title %} Описание курса {% endblock %}
+
+{% block content %}
+
+    <div class="grid-x grid-padding-x">
+            <div class="cell">
+
+                <h1> Список курсов: </h1>
+                <div class="callout">
+                {% for course in model.courses %}
+                    {% if model.courses is empty %}
+                        <div class="callout warning"
+                            Нет ни одного курса!
+                        </div>
+                    {% else %}
+                    <ul>
+                        <li> Название курса: {{ course.courseName}}</li>
+                        <li> ФИО преподавателя: {{ course.lecturerFullName}}</li>
+                        <li> Описание курса: {{ course.description}}</li>
+                        <li> Список аудиторий:</li>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td> 203 </td>
+                                    {% for scheduleItem in model.scheduleItems %}
+                                        {% if scheduleItem.auditoriumNumber == 203 %}
+                                            <td>
+                                                {% if scheduleItem.courseId == course.id %}
+                                                    {{ scheduleItem.dayOfWeek }}</br>
+                                                     {{ scheduleItem.startTime }}
+                                                {% endif %}
+                                            </td>
+                                         {% endif %}
+                                    {% endfor %}
+                                </tr>
+
+                                <tr>
+                                    <td> 216 </td>
+                                    {% for scheduleItem in model.scheduleItems %}
+                                        {% if scheduleItem.auditoriumNumber == 216 %}
+                                            <td>
+                                                {% if scheduleItem.courseId == course.id %}
+                                                    {{ scheduleItem.dayOfWeek }}</br>
+                                                     {{ scheduleItem.startTime }}
+                                                {% endif %}
+                                            </td>
+                                         {% endif %}
+                                    {% endfor %}
+                                </tr>
+
+                                <tr>
+                                    <td> 219 </td>
+                                    {% for scheduleItem in model.scheduleItems %}
+                                        {% if scheduleItem.auditoriumNumber == 219 %}
+                                            <td>
+                                                {% if scheduleItem.courseId == course.id %}
+                                                    {{ scheduleItem.dayOfWeek }}</br>
+                                                     {{ scheduleItem.startTime }}
+                                                {% endif %}
+                                            </td>
+                                         {% endif %}
+                                    {% endfor %}
+                                </tr>
+
+                                <tr>
+                                    <td> 220 </td>
+                                    {% for scheduleItem in model.scheduleItems %}
+                                        {% if scheduleItem.auditoriumNumber == 220 %}
+                                            <td>
+                                                {% if scheduleItem.courseId == course.id %}
+                                                    {{ scheduleItem.dayOfWeek }}</br>
+                                                     {{ scheduleItem.startTime }}
+                                                {% endif %}
+                                            </td>
+                                         {% endif %}
+                                    {% endfor %}
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                        </li>
+                        <li> Расписание: </li>
+                        <table class="hover unstriped">
+
+                            <tbody>
+                            <tr>
+                            <td> MONDAY </td>
+                            {% for scheduleItem in model.scheduleItems %}
+                                {% if scheduleItem.dayOfWeek == "MONDAY" %}
+                                    <td>
+                                        {% if scheduleItem.courseId == course.id %}
+                                            {{ scheduleItem.auditoriumNumber}}</br>
+                                            {{ scheduleItem.startTime }}
+                                        {% endif %}
+                                    </td>
+                                {% endif %}
+                            {% endfor %}
+                            </tr>
+
+                            <tr>
+                            <td> TUESDAY </td>
+                            {% for scheduleItem in model.scheduleItems %}
+                                {% if scheduleItem.dayOfWeek == "TUESDAY" %}
+                                    <td>
+                                        {% if scheduleItem.courseId == course.id %}
+                                            {{ scheduleItem.auditoriumNumber}}<br>
+                                            {{ scheduleItem.startTime }}
+                                        {% endif %}
+                                    </td>
+                                {% endif %}
+                            {% endfor %}
+                            </tr>
+
+                            <tr>
+                            <td> WEDNESDAY </td>
+                            {% for scheduleItem in model.scheduleItems %}
+                                {% if scheduleItem.dayOfWeek == "WEDNESDAY" %}
+                                    <td>
+                                        {% if scheduleItem.courseId == course.id %}
+                                            {{ scheduleItem.auditoriumNumber}}</br>
+                                            {{ scheduleItem.startTime }}
+                                        {% endif %}
+                                    </td>
+                                {% endif %}
+                            {% endfor %}
+                            </tr>
+
+                            <tr>
+                            <td> THURSDAY </td>
+                            {% for scheduleItem in model.scheduleItems %}
+                                {% if scheduleItem.dayOfWeek == "THURSDAY" %}
+                                    <td>
+                                        {% if scheduleItem.courseId == course.id %}
+                                            {{ scheduleItem.auditoriumNumber}}</br>
+                                            {{ scheduleItem.startTime }}
+                                        {% endif %}
+                                    </td>
+                                {% endif %}
+                            {% endfor %}
+                            </tr>
+
+                            <tr>
+                            <td> FRIDAY </td>
+                            {% for scheduleItem in model.scheduleItems %}
+                                {% if scheduleItem.dayOfWeek == "FRIDAY" %}
+                                    <td>
+                                        {% if scheduleItem.courseId == course.id %}
+                                            {{ scheduleItem.auditoriumNumber}}</br>
+                                            {{ scheduleItem.startTime }}
+                                        {% endif %}
+                                    </td>
+                                {% endif %}
+                            {% endfor %}
+                            </tr>
+
+                            <tr>
+                            <td> SATURDAY </td>
+                            {% for scheduleItem in model.scheduleItems %}
+                                {% if scheduleItem.dayOfWeek == "SATURDAY" %}
+                                    <td>
+                                        {% if scheduleItem.courseId == course.id %}
+                                            {{ scheduleItem.auditoriumNumber}}</br>
+                                            {{ scheduleItem.startTime }}
+                                        {% endif %}
+                                    </td>
+                                {% endif %}
+                            {% endfor %}
+                            </tr>
+
+                            <tr>
+                            <td> SUNDAY </td>
+                            {% for scheduleItem in model.scheduleItems %}
+                                {% if scheduleItem.dayOfWeek == "SUNDAY" %}
+                                    <td>
+                                        {% if scheduleItem.courseId == course.id %}
+                                            {{ scheduleItem.auditoriumNumber}}</br>
+                                            {{ scheduleItem.startTime }}
+                                        {% endif %}
+                                    </td>
+                                {% endif %}
+                            {% endfor %}
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+                    </ul>
+                    {% endif %}
+                {% endfor %}
+                </div>
+
+            </div>
+    </div>
+
+{% endblock %}
